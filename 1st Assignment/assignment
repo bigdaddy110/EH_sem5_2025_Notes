@@ -1,0 +1,82 @@
+📄 Assignment 20: Check Internet Exposure via Shodan
+Name: George Thomas
+Register Number: 2462072
+
+📌 Objective
+The purpose of this assignment is to investigate the visibility of internet-connected devices and services using Shodan. By analyzing a public IP address, the assignment demonstrates how attackers can gather information about exposed systems and helps identify steps to improve personal or organizational cybersecurity.
+
+🛠️ Methodology
+Searched my public IP on Shodan.
+
+Collected IP information from https://whatismyipaddress.com and IP location tools.
+
+Gathered available data: ASN, ISP, location, open services.
+
+Used Shodan to detect active services and ports.
+
+Identified exposed services and analyzed potential security risks.
+
+Documented the information with the IP and hostname masked for privacy.
+
+🌐 Shodan Results – General Information
+Field	Detail
+Masked IP	103.186.68.xxx
+Masked Hostname	103.186.xx.xxx
+Location	Bengaluru, Karnataka, India
+ISP/Org	Gatik Greenergy Pvt Ltd
+Service Type	Public Proxy Server
+ASN	AS132559
+Latitude	12.9762 (12° 58′ 34.43″ N)
+Longitude	77.6033 (77° 36′ 11.83″ E)
+
+🔓 Open Ports and Services (Based on Shodan Filters)
+Port	Service	Description
+88	Sunny WebBox	HTTP web interface for a solar inverter (Server: Sunny WebBox)
+8000	Webcam Interface	HTTP Basic Auth realm: "Ronkorama Webcams" (Server: BBVS/4.0)
+
+📊 Service Analysis
+🌞 Port 88 – Sunny WebBox
+Response: HTTP 200 OK
+
+Server Header: Sunny WebBox
+
+Last Modified: Sat, 12 Jul 2025
+
+Security Issue: Plain HTTP (no encryption); potentially outdated firmware.
+
+📹 Port 8000 – Webcam Interface
+Response: HTTP 401 Unauthorized (Basic Authentication Required)
+
+Realm: "Ronkorama Webcams"
+
+Server Header: BBVS/4.0
+
+Security Issue: Uses HTTP, exposing credentials; likely uses default login settings.
+
+⚠️ Security Analysis
+Issue	Risk Description
+Unencrypted Traffic	Both services use HTTP, allowing sensitive data to be intercepted in transit.
+Weak Authentication	Basic Auth can be brute-forced or sniffed, especially if default creds are used.
+IoT Exposure	Devices like Sunny WebBox often have known vulnerabilities if not updated.
+Global Access	No IP-based access control or firewall protection visible on these ports.
+
+🔐 Recommendations
+Area	Recommended Action
+🔑 Authentication	Change default credentials; consider disabling Basic Auth entirely
+🔒 Encryption	Enable HTTPS using valid TLS certificates
+🚫 Access Control	Use a firewall or router rules to block external access to ports 88 and 8000
+🧰 Updates	Regularly update the firmware of Sunny WebBox and webcam systems
+🧱 Network Design	Place devices behind a VPN or isolate them on a private internal network
+🧪 Monitoring	Periodically audit using Shodan or similar tools to check for accidental exposure
+
+💻 Tools Used
+Shodan Web Interface: https://shodan.io
+
+IP Lookup: whatismyipaddress.com
+
+Screenshot Tool: Windows Snipping Tool
+
+No custom code used
+
+✅ Conclusion
+This assignment highlights how easily accessible information about public IP addresses can pose real-world security risks. By using Shodan, it becomes clear that devices like webcams or inverters can be exposed without proper configurations. Proactive measures such as encryption, access control, and regular audits are essential to protect systems from unauthorized access and cyber threats.
