@@ -3,7 +3,9 @@ Name: George Thomas
 Register Number: 2462072
 
 📌 Objective
-The purpose of this assignment is to investigate the visibility of internet-connected devices and services using Shodan. By analyzing a public IP address, the assignment demonstrates how attackers can gather information about exposed systems and helps identify steps to improve personal or organizational cybersecurity.
+The purpose of this assignment is to investigate the visibility of internet-connected devices and services
+using Shodan. By analyzing a public IP address, the assignment demonstrates how attackers can gather information
+about exposed systems and helps identify steps to improve personal or organizational cybersecurity.
 
 🛠️ Methodology
 Searched my public IP on Shodan.
